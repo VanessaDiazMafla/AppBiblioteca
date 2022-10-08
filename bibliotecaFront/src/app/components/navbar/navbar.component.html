@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-expand-lg bg-light" style="background-color: rgb(236, 236, 241);"  >
+     <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">
+          <i class="bi bi-bank"></i>
+          <span class="text-warning"> BOokS-V</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="menu" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>     
+      <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/home" >Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/listarLibro" >Libros</a>
+              </li>
+              <li class="nav-item">
+
+              <a class="nav-link" aria-current="page" routerLink="/listarprestamo">Préstamo</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+             <button class="btn btn-outline-warning d-none d-md-inline-block" type="button" routerLink="/login"><i class="bi bi-people-fill" ></i>LoginOut</button>
+          </form>
+      </div>
+    </div>
+  </nav>
+
+  

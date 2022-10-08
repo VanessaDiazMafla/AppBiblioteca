@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+
+<div style="background-color:rgb(221, 207, 231)">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="shadow-lg p-3  mb-5 mt-4 bg-body rounded">
+                    <h1 class="mt-3 text-center"> Editar de Libro </h1>
+                    <form [formGroup]="editarLibro" (ngSubmit)="editarlibro()">
+                        <div class="col-auto">
+                            <label for="isbn" class="form-label">ISBN</label>
+
+                            <input formControlName="isbn" type="text" class="form-control" id="isbn" autocomplete="off">
+
+                            <span *ngIf="editarLibro.get('isbn')?.invalid && editarLibro.get('isbn')?.touched"
+                                class="text-danger"> El
+                                <strong>ISBN</strong> es un campo requerido
+                            </span>
+                        </div>
+                        <div>
+                            <label for="titulo" class="form-label">Titulo</label>
+
+                            <input formControlName="titulo" type="text" class="form-control" id="titulo"
+                                autocomplete="off">
+
+                            <span *ngIf="editarLibro.get('titulo')?.invalid && editarLibro.get('titulo')?.touched"
+                                class="text-danger"> El
+                                <strong>Titulo</strong> es un campo requerido
+                            </span>
+
+                        </div>
+                      
+                        <div>
+                            <label for="autor" class="form-label">Autor</label>
+                            <input formControlName="autor" type="text" class="form-control" id="autor">
+
+                            <span
+                            *ngIf="this.editarLibro.get('autor')?.errors?.['required'] && editarLibro.get('autor')?.touched"
+                            class="text-danger">
+                            El <strong>Nombre del Autor</strong> es un campo requerido</span>
+
+                            <span *ngIf="editarLibro.get('autor')?.errors?.['pattern']" class="text-danger">
+                                Por favor, Solo ingresar <strong>Letras</strong>
+                            </span>
+                        </div>
+
+                        <div>
+                            <label for="editorial" class="form-label">Editorial</label>
+                            <input formControlName="editorial" class="form-control" id="editorial">
+
+                            <span *ngIf="editarLibro.get('editorial')?.invalid && editarLibro.get('editorial')?.touched"
+                                class="text-danger"> El <strong>Editorial</strong> es un campo requerido
+
+                            </span>
+                        </div>
+
+                        <div class="mt-3">
+                            <label for="AnioPublicacion" class="form-label">Año de Publicación</label>
+                            <input type="date" formControlName="AnioPublicacion" class="form-control"
+                                id="AnioPublicacion">
+
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" [disabled]="editarLibro.invalid"
+                                class="btn btn-primary float-end">Editar</button>
+
+                            <button type="button" routerLink="/listarLibro" class="btn btn-secondary">Regresar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

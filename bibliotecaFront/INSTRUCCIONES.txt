@@ -1,0 +1,9 @@
+INSTRUCCIONES PARA ABRIR EL PROYECTO-FRONT
+
+- Instalar las dependencias 
+	npm i bootstrap-icons
+- Importarle en archivo style.css
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+-angular.json en styles
+"node_modules/bootstrap-icons/font/bootstrap-icons.css"

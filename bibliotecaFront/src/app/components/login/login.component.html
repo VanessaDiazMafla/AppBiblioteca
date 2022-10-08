@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="container-fluid">
+    
+    <div class="row">
+            <div class="col-8">
+                <div class="row mt3">
+                    <div class="col lg6">
+                        <br>
+                        <h1 class="text-center"> Bienvenidos a La Biblioteca V&S</h1>
+                        <img [src]="img" alt="" width="800 px" height="500" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col align-self-center">
+                <h3 class="text-center">Login <i class="bi bi-people-fill"></i></h3>
+                <form [formGroup]="iniciarUser" (ngSubmit)="iniciarSesion()">
+
+                    <div class="row mb-3 ">
+                        <label for="correo" class="col-sm-3 col-form-label">Usuario</label>
+                        <div class="col-sm-12">
+                            <input formControlName="correo" class="center-block" type="email" 
+                                class="form-control" id="correo" placeholder="Ingrese su Correo">
+                        </div>
+                        <span
+                            *ngIf="this.iniciarUser.get('correo')?.errors?.['required'] && iniciarUser.get('correo')?.touched"
+                            class="text-danger">
+                            El <strong>Nombre</strong> es un campo requerido</span>
+
+                        <span *ngIf="iniciarUser.get('correo')?.errors?.['email']" class="text-danger">
+                            Ejemplo, user <strong>@gmail.com</strong>
+                        </span>
+                    </div>
+
+
+
+                    <div class="mb-3 row">
+                        <label for="contrasenia" class="col-sm-3 col-form-label">Contraseña</label>
+                        <div class="col-sm-12">
+                            <input formControlName="contrasenia" type="password" class="form-control" id="contrasenia"
+                                placeholder="Ingrese su Contraseña">
+                        </div>
+                        <span *ngIf="iniciarUser.get('contrasenia')?.invalid && iniciarUser.get('contrasenia')?.touched"
+                            class="text-danger">La <strong>Contraseña</strong> es un campo requerido y debe tener mínimo <strong>8 carácteres</strong></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between-end">
+                        <!--Crear un eventos a los botones-->
+                        <div class="col lg6">
+                            <button type="submit" [disabled]="iniciarUser.invalid" class="btn btn-outline-success"
+                                routerLink="/home">Ingresar</button>
+                        </div>
+                        <div class="float-end">
+                            <button type="button" class="btn btn-outline-warning"
+                                routerLink="/registroUser">Registrarse</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

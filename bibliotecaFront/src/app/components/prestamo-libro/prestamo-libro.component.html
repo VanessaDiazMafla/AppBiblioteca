@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div style="background-color:rgb(150, 176, 182)">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="shadow-lg p-3  mb-5 mt-4 bg-body rounded">
+                    <h1 class="mt-3 text-center"> Nuevo Prestamo </h1>
+                        <form [formGroup]="prestamoLibro" (ngSubmit)="prestamolibro()">
+
+                                <div class="mt-3">
+                                    <div class="col-auto">
+                                        <label for="id" class="form-label">Id Usuario</label>
+                                        <input formControlName="id" type="text" class="form-control" id="id" autocomplete="off">
+                                        <span *ngIf="prestamoLibro.get('id')?.invalid && prestamoLibro.get('id')?.touched"
+                                            class="text-danger"> El <strong>ID DE USUARIO</strong> es un campo requerido</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="col-auto">
+                                        <label for="isbn" class="form-label">ISBN Libro</label>
+                                        <input formControlName="isbn" type="text" class="form-control" id="isbn">
+
+                                        <span *ngIf="prestamoLibro.get('isbn')?.invalid && prestamoLibro.get('isbn')?.touched"
+                                            class="text-danger"> El
+                                            <strong>ISBN</strong> es un campo requerido </span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="col-auto">
+                                        <label for="fecha_prestamo" class="form-label">Fecha Prestamo</label>
+                                        <input type="date" formControlName="fecha_prestamo" class="form-control" id="fecha_prestamo">
+
+                                        <span
+                                            *ngIf="prestamoLibro.get('fecha_prestamo')?.invalid && prestamoLibro.get('fecha_prestamo')?.touched"
+                                            class="text-danger"> El <strong>La fecha del prestamo</strong> es un campo requerido
+                                        </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="mt-3">
+                                    <div class="col-auto">
+                                            <label for="fecha_devolucion" class="form-label">Fecha Devolución</label>
+                                            <input type="date" formControlName="fecha_devolucion" class="form-control" id="fecha_devolucion">
+
+                                            <span
+                                                *ngIf="prestamoLibro.get('fecha_devolucion')?.invalid && prestamoLibro.get('fecha_devolucion')?.touched"
+                                                class="text-danger"> El <strong>La fecha de Devolución</strong> es un campo requerido
+                                             </span>
+                                    </div>
+                              </div>
+                            
+                              <div class="mt-4">
+                                    <button type="submit" [disabled]="prestamoLibro.invalid" class="btn btn-primary float-end">Guardar</button>
+                                    <button type="button" routerLink="/listarprestamo" class="btn btn-secondary">Regresar</button>
+                             </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
